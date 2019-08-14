@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <seoredirects translate="label" module="seoredirects">
+            <label>SEO Redirect</label>
+            <tab>catalog</tab>
+            <sort_order>990</sort_order>
+            <show_in_default>0</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <settings translate="label">
+                    <label>SEO Redirect Settings</label>
+                    <sort_order>1</sort_order>
+                    <show_in_default>0</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <seoredirects_enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </seoredirects_enabled>
+                        
+                        <seoredirects_url translate="label">
+                            <label>Google Docs URL</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The above URL will be downloaded into Magento at 2am every morning</comment>
+                        </seoredirects_url>
+                        
+                        <seoredirects_serial translate="label">
+                            <label>Serial</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Visit <a href="http://www.zero1.co.uk/" target="_blank">http://www.zero1.co.uk</a> if you require a serial.]]></comment>
+                        </seoredirects_serial>
+                    </fields>
+                </settings>
+            </groups>
+        </seoredirects>
+    </sections>
+</config>

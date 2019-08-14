@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>        
+    <modules>
+        <Zero1_Seoredirects>
+            <version>1.0.1</version>
+        </Zero1_Seoredirects>
+    </modules>
+    
+    <global>        
+        <models>            
+            <seoredirects>
+                <class>Zero1_Seoredirects_Model</class>
+                <resourceModel>seoredirects_mysql4</resourceModel>
+            </seoredirects>
+            
+            <seoredirects_mysql4>
+                <class>Zero1_Seoredirects_Model_Mysql4</class>
+                <entities>
+                    <redirection>
+                        <table>zero1_seoredirects_redirection</table>
+                    </redirection>
+                </entities>
+            </seoredirects_mysql4>
+        </models>
+        
+        <resources>            
+            <seoredirects_setup>
+                <setup>
+                    <module>Zero1_Seoredirects</module>
+                    <class>Zero1_Seoredirects_Model_Mysql4_Setup</class>
+                </setup>
+            </seoredirects_setup>
+        </resources>
+           
+        <blocks>
+            <seoredirects>
+                <class>Zero1_Seoredirects_Block</class>
+            </seoredirects>
+        </blocks>
+        
+        <helpers>
+            <seoredirects>
+                <class>Zero1_Seoredirects_Helper</class>
+            </seoredirects>
+        </helpers>
+    </global>
+    
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <seoredirects before="Mage_Adminhtml">Zero1_Seoredirects_Adminhtml</seoredirects>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    
+    <frontend>    
+	    <events>    
+	      <controller_front_send_response_before>
+	        <observers>
+	          <Zero1_Seoredirects_Model_Observer>
+	            <type>singleton</type>
+	            <class>Zero1_Seoredirects_Model_Observer</class>
+	            <method>controller_front_send_response_before</method>
+	          </Zero1_Seoredirects_Model_Observer>
+	        </observers>
+	      </controller_front_send_response_before>
+	    </events>
+    </frontend>
+    
+    <adminhtml> 
+        <layout>
+            <updates>
+                <seoredirects>
+                    <file>seoredirects.xml</file>
+                </seoredirects>
+            </updates>
+        </layout>
+    </adminhtml>
+    
+    <default>       
+        <seoredirects>
+            <settings>
+                <seoredirects_enabled>0</seoredirects_enabled>
+                <seoredirects_url></seoredirects_url>
+            </settings>
+        </seoredirects>
+    </default>
+    
+    <crontab>
+        <jobs>
+            <seoredirects>
+                <schedule>
+                    <cron_expr>0 2 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>seoredirects/observer::updateRedirectionsCronJob</model>
+                </run>
+            </seoredirects>
+        </jobs>
+    </crontab>
+</config>

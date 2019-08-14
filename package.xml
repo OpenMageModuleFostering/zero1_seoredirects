@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Zero1_Seoredirects</name>
+    <version>1.0.1</version>
+    <stability>stable</stability>
+    <license uri="http://shop.zero1.co.uk/LICENSE.txt">Commercial</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Manage you SEO redirects using a Google Doc</summary>
+    <description>Manage you SEO redirects using a Google Doc</description>
+    <notes>Added enterprise support.</notes>
+    <authors><author><name>Arron Moss</name><user>zero1limited</user><email>arron.moss@zero1.co.uk</email></author></authors>
+    <date>2012-06-06</date>
+    <time>15:49:43</time>
+    <contents><target name="magecommunity"><dir name="Zero1"><dir name="Seoredirects"><dir name="Block"><dir name="Manage"><file name="Grid.php" hash="b06399e81b30ef592805277595061b38"/></dir><file name="Manage.php" hash="1ed89ca5e60aeec11a5c225bcce8e124"/></dir><dir name="Helper"><file name="Data.php" hash="36474aca2c8e7dce3f30c398bd9c0ce0"/><file name="License.php" hash="f3a07c022c7320f4bc54e0924987b033"/></dir><dir name="Model"><dir name="Mysql4"><dir name="Redirection"><file name="Collection.php" hash="73bf6b8f2ddff49dac520a6f71f72502"/></dir><file name="Redirection.php" hash="21d829342e13727de44bd3c821054bd9"/><file name="Setup.php" hash="e97a5f05e8459f367c14e98e7a0b03c6"/></dir><file name="Observer.php" hash="68a7421e20114ab36189c652126833a9"/><file name="Redirection.php" hash="8d26f395bf5b33679b032c160152e24a"/></dir><dir name="controllers"><dir name="Adminhtml"><dir name="Seoredirects"><file name="ManageController.php" hash="bf497a1ce5f202abd024a5736a0e8a9a"/></dir></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="7e8d3a4c8dff9b4df9f380c284225393"/><file name="config.xml" hash="ae97954390f310a297c9318763779dae"/><file name="system.xml" hash="f57542075fa866da0b34f1e93f7627c1"/></dir><dir name="sql"><dir name="seoredirects_setup"><file name="mysql4-install-1.0.0.php" hash="918bc1dee6bb2388e78b7346929916c9"/><file name="mysql4-install-1.0.1.php" hash="918bc1dee6bb2388e78b7346929916c9"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Zero1_Seoredirects.xml" hash="dd176346dbb2abf0e20d8ea087abe2ce"/></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="seoredirects.xml" hash="84e2381a4d12eb22fa5e6b5b092ddef7"/></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php><extension><name>ionCube Loader</name><min></min><max></max></extension><extension><name>mcrypt</name><min></min><max></max></extension></required></dependencies>
+</package>
