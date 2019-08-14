@@ -5,6 +5,8 @@ class Zero1_Seoredirects_Helper_License extends Mage_Core_Helper_Abstract
 	private $_license_required_for_enterprise	= true;
     protected $_licenceLimit = null;
 
+    private $licenseData = null;
+
     const DEFAULT_LIMIT = 50;
 		
 	public function isEnterprise()
@@ -25,10 +27,8 @@ class Zero1_Seoredirects_Helper_License extends Mage_Core_Helper_Abstract
 		return false;
 	}
 	
-	public function isValid()
+	public function isValid($data)
 	{
-		$data = $this->getData();
-
 		if($this->isEnterprise())
 		{
 			if($this->_license_required_for_enterprise && !isset($data['enterprise']))
@@ -37,12 +37,21 @@ class Zero1_Seoredirects_Helper_License extends Mage_Core_Helper_Abstract
 			if($this->_license_required_for_community && !isset($data['community']))
 				return false;
 		}
+
+        if(!isset($data['limit'])){
+            return false;
+        }
 		
 		return true;
 	}
 	
     public function getData()
     {
+        if($this->licenseData){
+            return $this->licenseData;
+        }
+        $this->buildDefaultData();
+
 		$store = Mage::app()->getStore(0);
 		
     	$data			= array();
@@ -50,17 +59,49 @@ class Zero1_Seoredirects_Helper_License extends Mage_Core_Helper_Abstract
     	$module_name	= strtolower($module_name);
     	$serial			= base64_decode($store->getConfig($module_name.'/settings/serial'));
     	$url			= $store->getConfig('web/unsecure/base_url');
-    	
-    	if(!empty($url) && !empty($serial))
-    	{
-	    	$hash = hash('sha256', '$4$W8DgMGQZ$Twn84iicE6FQo7wCrxnL4Aow5/w$'.$module_name.$url, true);	    	
-	    	$iv_size = mcrypt_get_iv_size(MCRYPT_BLOWFISH, MCRYPT_MODE_ECB);
-	    	$iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
-    		$data = @unserialize(mcrypt_decrypt(MCRYPT_BLOWFISH, $hash, $serial, MCRYPT_MODE_ECB, $iv));
-    		$data = (!is_array($data)) ? array() : $data;
-    	}
-    	
-    	return $data;
+
+        if(!$serial || !$url){
+            return $this->licenseData;
+        }
+
+        //try using legacy method full base url
+        $data = $this->decrypt($module_name, $url, $serial);
+        if($this->isValid($data)){
+            $this->licenseData = $data;
+            return $this->licenseData;
+        }
+
+        //try using new method domain only
+        $url = parse_url($url, PHP_URL_HOST);
+        $data = $this->decrypt($module_name, $url, $serial);
+        if($this->isValid($data)){
+            $this->licenseData = $data;
+            return $this->licenseData;
+        }
+
+        //nothing is valid
+        return $this->licenseData;
+    }
+
+    protected function decrypt($moduleName, $url, $serial)
+    {
+        $hash = hash('sha256', '$4$W8DgMGQZ$Twn84iicE6FQo7wCrxnL4Aow5/w$'.$moduleName.$url, true);
+        $iv_size = mcrypt_get_iv_size(MCRYPT_BLOWFISH, MCRYPT_MODE_ECB);
+        $iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+        $data = @unserialize(mcrypt_decrypt(MCRYPT_BLOWFISH, $hash, $serial, MCRYPT_MODE_ECB, $iv));
+        $data = (!is_array($data)) ? array() : $data;
+        return $data;
+    }
+
+    protected function buildDefaultData()
+    {
+        $this->licenseData = array();
+        if($this->isEnterprise()){
+            $this->licenseData['enterprise'] = 1;
+        }else{
+            $this->licenseData['community'] = 1;
+        }
+        $this->licenseData['limit'] = self::DEFAULT_LIMIT;
     }
     
     public function getRequestURL($store = null)
@@ -76,19 +117,7 @@ class Zero1_Seoredirects_Helper_License extends Mage_Core_Helper_Abstract
 
     public function getLicenceLimit()
     {
-        if(isset($this->_licenceLimit)) {
-            $this->_licenceLimit;
-        }
-
-        $this->_licenceLimit = self::DEFAULT_LIMIT;
-        if($this->isValid()) {
-            $license_data = $this->getData();
-
-            if(isset($license_data['limit'])) {
-                $this->_licenceLimit = $license_data['limit'];
-            }
-        }
-
-        return $this->_licenceLimit;
+        $data = $this->getData();
+        return $data['limit'];
     }
 }

@@ -11,16 +11,23 @@ class Zero1_Seoredirects_Block_Adminhtml_Import extends Mage_Adminhtml_Block_Wid
 
     protected function _prepareLayout()
     {
-        $this->_addButton('run', array(
-            'label'     => Mage::helper('core')->__('Run Import'),
-            'onclick'   =>
-                'new Ajax.Request(\''.$this->getUrl('*/*/run').'\', {
-                    onSuccess: function(transport){
-                        $(\'report-container\').update(transport.responseText);
-                    }
-                });',
-            'class'     => 'add',
-        ));
+        if(Zero1_Seoredirects_Model_Importer::isRunning()){
+            $this->_addButton('refresh_data', array(
+                'label'     => Mage::helper('core')->__('Refresh Data'),
+                'onclick'   => 'window.location =\''.$this->getUrl('*/*/*').'\';',
+                'class'     => 'add',
+            ));
+        }else{
+            $this->_addButton('run', array(
+                'label'     => Mage::helper('core')->__('Run Import'),
+                'onclick'   =>
+                    'new Ajax.Request(\''.$this->getUrl('*/*/run').'\', {
+                	asynchronous: false,
+                	method: \'get\'
+                }); window.location =\''.$this->getUrl('*/*/*').'\';',
+                'class'     => 'add',
+            ));
+        }
 
         return parent::_prepareLayout();
     }

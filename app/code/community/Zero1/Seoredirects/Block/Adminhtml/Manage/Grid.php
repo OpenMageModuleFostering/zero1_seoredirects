@@ -61,6 +61,10 @@ class Zero1_Seoredirects_Block_Adminhtml_Manage_Grid extends Mage_Adminhtml_Bloc
             'CONCAT({{from_url_path}}, IF({{from_url_query}}=\'\', \'\', \'?\'), {{from_url_query}})',
             array('from_url_path'=>'from_url_path', 'from_url_query'=>'from_url_query')
         );
+        $collection->addFilterToMap(
+            'CONCAT(from_url_path, IF(from_url_query=\'\', \'\', \'?\'), from_url_query)',
+            'CONCAT(from_url_path, IF(from_url_query="", "", "?"), from_url_query)'
+        );
 
         if ($store->getId()) {
             $collection->addFieldToFilter('store_id', $store->getId());

@@ -1,0 +1,24 @@
+<?php
+/** @var $this Zero1_Seoredirects_Block_Adminhtml_System_Config_ImportUnlock */
+$dbStatus = $this->getDBImportStatus();
+$osStatus = $this->getTrueImportStatus();
+?>
+<script type="text/javascript">
+    function unlockImport() {
+        new Ajax.Request('<?php echo $this->getUnlockUrl() ?>', {
+            asynchronous:   true
+        });
+    }
+</script>
+
+<?php echo $this->getButtonHtml() ?>
+<div>
+    <?php if($dbStatus == $osStatus): ?>
+        <b><?php echo $this->__('Statuses agree'); ?></b>
+    <?php elseif($dbStatus == Zero1_Seoredirects_Model_Importer::RUNLOCK_NOT_RUNNING && $osStatus == Zero1_Seoredirects_Model_Importer::RUNLOCK_NOT_RUNNING): ?>
+        <b><?php echo $this->__('This may be a time to use the button'); ?></b>
+    <?php else: ?>
+        <b><?php echo $this->__('Not a valid time to use the button'); ?></b>
+    <?php endif; ?>
+</div>
+

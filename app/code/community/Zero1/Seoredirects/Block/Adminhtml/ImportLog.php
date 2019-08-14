@@ -31,7 +31,7 @@
  * @package    Mage_Adminhtml
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-class Zero1_Seoredirects_Block_Adminhtml_Manage extends Mage_Adminhtml_Block_Widget_Container
+class Zero1_Seoredirects_Block_Adminhtml_ImportLog extends Mage_Adminhtml_Block_Widget_Container
 {
     /**
      * Set template
@@ -39,7 +39,7 @@ class Zero1_Seoredirects_Block_Adminhtml_Manage extends Mage_Adminhtml_Block_Wid
     public function __construct()
     {
         parent::__construct();
-        $this->setTemplate('zero1/seoredirects/manage.phtml');
+        $this->setTemplate('zero1/seoredirects/importLog.phtml');
     }
 
     /**
@@ -49,18 +49,13 @@ class Zero1_Seoredirects_Block_Adminhtml_Manage extends Mage_Adminhtml_Block_Wid
      */
     protected function _prepareLayout()
     {
-        $this->_addButton('add_new', array(
-            'label'   => Mage::helper('catalog')->__('Add Redirect'),
-            'onclick' => "setLocation('".$this->getUrl('*/*/new')."')",
-            'class'   => 'add'
-        ));
-        $this->_addButton('import_log', array(
-            'label'   => Mage::helper('catalog')->__('View Import Logs'),
-            'onclick' => "setLocation('{$this->getUrl('*/seoredirects_importLog/index')}')",
-            'class'   => 'refresh'
+        $this->_addButton('back', array(
+            'label'   => Mage::helper('catalog')->__('Back'),
+            'onclick' => "setLocation('".$this->getUrl('*/seoredirects_manage/index')."')",
+            'class'   => 'back'
         ));
 
-        $this->setChild('grid', $this->getLayout()->createBlock('zero1_seo_redirects/adminhtml_manage_grid', 'redirect.grid'));
+        $this->setChild('grid', $this->getLayout()->createBlock('zero1_seo_redirects/adminhtml_importLog_grid', 'import.grid'));
         return parent::_prepareLayout();
     }
 

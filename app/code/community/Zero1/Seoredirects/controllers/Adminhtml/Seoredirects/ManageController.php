@@ -52,6 +52,7 @@ class Zero1_Seoredirects_Adminhtml_Seoredirects_ManageController extends Mage_Ad
             //add changes from form
             $model->setData($data);
             try{
+                $model->setSource(Zero1_Seoredirects_Model_Redirection::SOURCE_TYPE_MANUAL_VALUE);
                 $model->save();
 
                 Mage::getSingleton('adminhtml/session')->addSuccess(

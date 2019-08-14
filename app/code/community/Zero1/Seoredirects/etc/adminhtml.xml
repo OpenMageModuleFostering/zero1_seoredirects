@@ -33,12 +33,19 @@
                             <config>
                                 <children>
                                     <seoredirects translate="title" module="zero1_seo_redirects">
-                                        <title>SEO Redirect</title>
+                                        <title>SEO Redirects</title>
                                     </seoredirects>
                                 </children>
                             </config>
                         </children>
                     </system>
+                    <catalog>
+                        <children>
+                            <seoredirects translate="title" module="zero1_seo_redirects">
+                                <title>SEO Redirects</title>
+                            </seoredirects>
+                        </children>
+                    </catalog>
                 </children>
             </admin>
         </resources>

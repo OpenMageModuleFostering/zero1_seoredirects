@@ -7,18 +7,26 @@ class Zero1_Seoredirects_Model_Observer
     protected function checkForRedirection($observer)
 	{
         // There is a valid route, nothing to do
-		if(Mage::app()->getRequest()->getActionName() != 'noRoute'){ return; }
+		if(Mage::app()->getRequest()->getActionName() != 'noRoute'){
+            return;
+        }
 
-        /* @var $redirector Zero1_Seoredirects_Model_Redirector */
-        $redirector = Mage::getModel('zero1_seo_redirects/redirector');
+        //Mage::log('registry: '.Mage::registry('zero1_seo_redirects'), Zend_Log::DEBUG, 'seo.log', true);
+        if(Mage::registry('zero1_seo_redirects')){
+            return;
+        }
+        /* @var $redirector Zero1_Seoredirects_Model_Redirecter */
+        $redirector = Mage::getModel('zero1_seo_redirects/redirecter');
 
-        $result = $redirector->redirect(
+		//Mage::log('core/url: '.Mage::helper('core/url')->getCurrentUrl(), Zend_Log::DEBUG, 'seo.log', true);
+
+        $redirection = $redirector->redirect(
                 Mage::app()->getStore()->getId(),
                 Mage::helper('core/url')->getCurrentUrl()
             );
 
-        if(Mage::helper('zero1_seo_redirects')->canDebug()){
-			Mage::helper('zero1_seo_redirects')->debug('Result: '.json_encode($result));
+        if($redirection){
+            Mage::register('zero1_seo_redirects', $redirection->getId());
         }
     }
 
@@ -27,6 +35,7 @@ class Zero1_Seoredirects_Model_Observer
      */
     public function controller_front_send_response_before(Varien_Event_Observer $observer)
 	{
+        //Mage::log(__METHOD__, Zend_Log::DEBUG, 'seo.log', true);
 		$this->checkForRedirection($observer);
 	}
 
@@ -35,10 +44,7 @@ class Zero1_Seoredirects_Model_Observer
      */
     public function controller_front_send_response_after(Varien_Event_Observer $observer)
 	{
+        //Mage::log(__METHOD__, Zend_Log::DEBUG, 'seo.log', true);
 		$this->checkForRedirection($observer);
 	}
-
-    public function cronImport(){
-
-    }
 }

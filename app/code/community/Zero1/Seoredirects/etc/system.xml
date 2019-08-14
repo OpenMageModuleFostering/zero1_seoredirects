@@ -140,11 +140,29 @@
                             <show_in_store>1</show_in_store>
                             <comment><![CDATA[How much information should be displayed after running an import]]></comment>
                         </import_log_level>
+                        <import_status traslate="label">
+                            <label>Import Status</label>
+                            <frontend_type>label</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </import_status>
+                        <import_unlock translate="label">
+                            <label>Import Unlock</label>
+                            <frontend_type>button</frontend_type>
+                            <sort_order>14</sort_order>
+                            <frontend_model>zero1_seo_redirects/adminhtml_system_config_importUnlock</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Do not use unless you know fully what this does, and understand the consequences.</comment>
+                        </import_unlock>
                         <enable_reporting traslate="label">
                             <label>Enable reporting</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>13</sort_order>
+                            <sort_order>18</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -153,7 +171,7 @@
                         <email_addresses>
                             <label>Email</label>
                             <frontend_type>text</frontend_type>
-                            <sort_order>14</sort_order>
+                            <sort_order>19</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -164,44 +182,24 @@
                             <label>Report after a manual import</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>15</sort_order>
+                            <sort_order>20</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                             <depends><enable_reporting>1</enable_reporting></depends>
                             <comment><![CDATA[Enable this to be sent a report after a manual import has ran.]]></comment>
                         </after_manual_import>
+                        <path_to_php>
+                            <label>Path to php</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>This will only be used if "which php" and "php -v" fail</comment>
+                        </path_to_php>
                     </fields>
                 </advanced_settings>
-                <debug_settings>
-                    <label>Debug Settings</label>
-                    <sort_order>40</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
-                    <fields>
-                        <enable_debug traslate="label">
-                            <label>Enable Debug</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>10</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <comment><![CDATA[Enable debug mode for select IPs.]]></comment>
-                        </enable_debug>
-                        <debug_ips>
-                            <label>IP Addresses</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>20</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <depends><enable_debug>1</enable_debug></depends>
-                            <comment>Comma seperated list, blank for all</comment>
-                        </debug_ips>
-                    </fields>
-                </debug_settings>
             </groups>
         </seoredirects>
     </sections>

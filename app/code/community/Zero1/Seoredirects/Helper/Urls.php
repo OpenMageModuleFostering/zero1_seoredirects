@@ -8,7 +8,6 @@ class Zero1_Seoredirects_Helper_Urls extends Mage_Core_Helper_Abstract
 	 * @return array
 	 */
 	public function parseUrl($url = '', $storeId = null){
-		$this->_getHelper()->debug('parseUrl');
 		$parsed = parse_url($url);
 
 		//sort out issue where BASE PATH is domain.com/a/b
@@ -56,7 +55,6 @@ class Zero1_Seoredirects_Helper_Urls extends Mage_Core_Helper_Abstract
 				$parsed['path'] = substr($parsed['path'], $stringLengthDifference);
 			}
 		}
-		$this->_getHelper()->debug('base url: '.$baseUrl.PHP_EOL.'parsed: '.json_encode($parsed));
 	}
 
     public function getAssocQuery($query){
@@ -64,9 +62,8 @@ class Zero1_Seoredirects_Helper_Urls extends Mage_Core_Helper_Abstract
         if($query == null || $query == ''){
             return $urlParams;
         }
-        if($query[0] == '?'){
-            $query = substr($query, 1);
-        }
+		$query = ltrim($query, '?');
+
         if(strpos($query, '&') !== false){
             $params = explode('&', $query);
         }else{

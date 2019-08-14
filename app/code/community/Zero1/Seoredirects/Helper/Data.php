@@ -9,8 +9,7 @@ class Zero1_Seoredirects_Helper_Data extends Mage_Core_Helper_Abstract
     const USE_GOOGLE_DOC_CONFIG_PATH = 'seoredirects/settings/use_google_docs';
     const LOG_404S_CONFIG_PATH = 'seoredirects/advanced_settings/log_404s';
     const LOG_404S_LIMIT_CONFIG_PATH = 'seoredirects/advanced_settings/log_404s_limit';
-    const ENABLED_DEBUG_CONFIG_PATH = 'seoredirects/debug_settings/enable_debug';
-    const DEBUG_IPS_CONFIG_PATH = 'seoredirects/debug_settings/debug_ips';
+    const PATH_TO_PHP = 'seoredirects/advanced_settings/path_to_php';
 
 	const CONFIG_PATH_IMPORT_LOG_LEVEL = 'seoredirects/advanced_settings/import_log_level';
 
@@ -64,24 +63,33 @@ class Zero1_Seoredirects_Helper_Data extends Mage_Core_Helper_Abstract
         return $ips;
     }
 
-    public function canDebug($store = null, $ip = null){
-        if(!$this->getIsDebugEnabled($store)){
-            return false;
-        }
-        if(!$ip){
-            $ip = Mage::app()->getRequest()->getClientIp();
-        }
-        $debugIps = $this->getDebugIps($store);
-        if(!empty($debugIps) && array_search($ip, $debugIps) === false){
-            return false;
-        }
-
-        return true;
-    }
-
     public function getLog404Limit($storeId = null){
         return (int)Mage::getStoreConfig(self::LOG_404S_LIMIT_CONFIG_PATH, $storeId);
     }
+
+	public function shouldLog404($storeId = null)
+	{
+		if($storeId){
+			$storeId = Mage::app()->getStore()->getId();
+		}
+		if(!$this->getIsLog404Enabled($storeId)){
+			return false;
+		}
+		$limit = $this->getLog404Limit($storeId);
+		if($limit == 0){
+			return true;
+		}
+		$loggedCount = Mage::getModel('zero1_seo_redirects/redirection')->getCollection()
+			->addFieldToFilter('store_id', $storeId)
+			->addFieldToFilter('source', Zero1_Seoredirects_Model_Redirection::SOURCE_TYPE_LOGGED_VALUE)
+			->count();
+
+		if($loggedCount >= $limit){
+			return false;
+		}else{
+			return true;
+		}
+	}
 
     public function stripIgnoreables($storeId = null, $args = array()){
         if(!$storeId){
@@ -233,11 +241,25 @@ class Zero1_Seoredirects_Helper_Data extends Mage_Core_Helper_Abstract
         return $read->fetchAll($select, $params);
     }
 
-    public function debug($message){
-        if(!$this->canDebug()){return;}
-    }
-
 	public function getImportLogLevel($store = null){
 		return (int)Mage::getStoreConfig(self::CONFIG_PATH_IMPORT_LOG_LEVEL, $store);
 	}
+
+    public function getPhpLocation()
+    {
+        $phpLocation = exec('which php');
+        if(!$phpLocation){
+            $phpLocation = exec('php -v');
+            if($phpLocation && strpos($phpLocation, 'command not found') === false){
+                return 'php';
+            }
+            $phpLocation = Mage::getStoreConfig(self::PATH_TO_PHP);
+            if(!$phpLocation){
+                return 'php';
+            }
+            return $phpLocation;
+        }
+        return $phpLocation;
+    }
+
 }

@@ -1,0 +1,43 @@
+<?php
+/* @var $this Zero1_Seoredirects_Block_Adminhtml_Import_StatusSummary */
+$collection = $this->getStatusCollection();
+
+?>
+<div class="grid" style="margin-bottom: 50px;">
+    <table class="data" cellspacing="0">
+        <colgroup>
+            <col span="1" style="width: 250px;" />
+            <col span="1" />
+            <col span="1" style="width: 100px;" />
+            <col span="1" style="width: 100px;" />
+        </colgroup>
+        <thead>
+        <tr class="headings">
+            <th class="no-link"><span class="nobr"><?php echo Mage::helper('core')->__('Store') ?></span></th>
+            <th class="no-link"><span class="nobr"><?php echo Mage::helper('core')->__('Progress') ?></span></th>
+            <th class="no-link"><span class="nobr"><?php echo Mage::helper('core')->__('Started At') ?></span></th>
+            <th class="no-link"><span class="nobr"><?php echo Mage::helper('core')->__('Updated At') ?></span></th>
+        </tr>
+        </thead>
+        <tbody>
+            <?php /** @var $status Zero1_Seoredirects_Model_ImportStatus */ ?>
+            <?php foreach($collection as $status): ?>
+                <tr class="headings">
+                    <td class="no-link"><span class="nobr"><?php echo Mage::app()->getStore($status->getScopeId())->getName(); ?></span></td>
+                    <td class="no-link">
+                        <?php if(!$status->getToBeImported()): ?>
+                            <?php echo $this->__('To Be Determined'); ?>
+                        <?php else: ?>
+                            <?php $percent =  sprintf('%.2f', (($status->getImported() / $status->getToBeImported()) * 100)); ?>
+                            <div style="white-space: nowrap; overflow-x: visible; background: lightgreen; width: <?php echo $percent; ?>%;">
+                                (<?php echo $status->getImported(); ?> / <?php echo $status->getToBeImported(); ?>) <?php echo $percent; ?>% complete
+                            </div>
+                        <?php endif;?>
+                    </td>
+                    <td class="no-link"><span class="nobr"><?php echo $status->getCreatedAt(); ?></span></td>
+                    <td class="no-link"><span class="nobr"><?php echo $status->getUpdatedAt() ?></span></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

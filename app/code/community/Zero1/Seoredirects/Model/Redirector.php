@@ -229,7 +229,6 @@ class Zero1_Seoredirects_Model_Redirector{
             ->setStatus(0)
             ->setFromUrlQuery((isset($parsedUrl['query'])? $parsedUrl['query'] : null))
             ->setFromType(Zero1_Seoredirects_Model_Redirection::FROM_TYPE_FIXED_QUERY_VALUE)
-            ->setHits(1)
             ->save();
 
         if($this->_getHelper()->canDebug()){

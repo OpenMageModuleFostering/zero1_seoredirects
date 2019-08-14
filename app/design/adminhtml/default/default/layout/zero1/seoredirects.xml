@@ -31,7 +31,20 @@
 
     <adminhtml_seoredirects_import_index>
         <reference name="content">
-            <block type="zero1_seo_redirects/adminhtml_import" name="seo_redirects_import" />
+            <block type="zero1_seo_redirects/adminhtml_import_status" name="import_status"/>
+            <block type="zero1_seo_redirects/adminhtml_import" name="seo_redirects_import"/>
+            <block type="zero1_seo_redirects/adminhtml_import_statusSummary" name="import_status_summary"/>
         </reference>
     </adminhtml_seoredirects_import_index>
+
+    <adminhtml_seoredirects_importlog_index>
+        <reference name="content">
+            <block type="zero1_seo_redirects/adminhtml_importLog" name="seoredirects_importLog" />
+        </reference>
+    </adminhtml_seoredirects_importlog_index>
+
+    <adminhtml_seoredirects_importlog_grid>
+        <update handle="formkey"/>
+        <block type="zero1_seo_redirects/adminhtml_importLog_grid" name="seoredirects_importLog.ajax" output="toHtml"/>
+    </adminhtml_seoredirects_importlog_grid>
 </layout>

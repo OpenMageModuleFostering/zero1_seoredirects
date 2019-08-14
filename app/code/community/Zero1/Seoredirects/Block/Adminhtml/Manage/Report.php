@@ -8,26 +8,29 @@ class Zero1_Seoredirects_Block_Adminhtml_Manage_Report extends Mage_Adminhtml_Bl
     }
 
     public function getLicenseCounts(){
-		/* @var $redirection Zero1_Seoredirects_Model_Redirection */
-		$redirection = Mage::getModel('zero1_seo_redirects/redirection');
-		$resource = $redirection->getResource();
-		$con = $resource->getReadConnection();
+        /* @var $redirection Zero1_Seoredirects_Model_Redirection */
+        $redirection = Mage::getModel('zero1_seo_redirects/redirection');
+        $resource = $redirection->getResource();
+        $con = $resource->getReadConnection();
 
-		$select = $con->select();
-		$select->from('core_store as store_table', array(
-			'store_table.store_id',
-			'store_table.name',
-			new Zend_Db_Expr('IF(store_table.store_id = 0,
+        $storeTable = $resource->getTable('core/store');
+        $redirectsTable = $resource->getTable('zero1_seo_redirects/redirection');
+
+        $select = $con->select();
+        $select->from($storeTable.' as store_table', array(
+            'store_table.store_id',
+            'store_table.name',
+            new Zend_Db_Expr('IF(store_table.store_id = 0,
         (SELECT
             COUNT(*)
         FROM
-            zero1_seoredirects_redirection
+            '.$redirectsTable.'
         where
             status = 1),
         (SELECT
             COUNT(*)
         FROM
-            zero1_seoredirects_redirection
+            '.$redirectsTable.'
         where
             store_id = store_table.store_id and status = 1)) as count')));
 
