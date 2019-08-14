@@ -1,68 +1,64 @@
-<?php //0046a
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo('Site error: the file <b>'.__FILE__.'</b> requires the ionCube PHP Loader '.basename($__ln).' to be installed by the website operator. If you are the website operator please use the <a href="http://www.ioncube.com/lw/">ionCube Loader Wizard</a> to assist with installation.');exit(199);
-?>
-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
-nYtldWvL2zGtk2BqKrp2Q7S8qYWcIFDBkWspO5u=
+<?php
+class Zero1_Seoredirects_Adminhtml_Seoredirects_ManageController extends Mage_Adminhtml_Controller_Action
+{	
+	public function indexAction()
+	{		
+        $this->_title($this->__('SEO Redirects'))
+        	 ->_title($this->__('Manage Redirects'));
+        
+		$this->loadLayout();
+        $this->_setActiveMenu('catalog/seoredirects');
+		$this->renderLayout();
+	}
+	
+	public function updateAction()
+	{
+		Mage::getModel('seoredirects/observer')->updateRedirectionsCronJob();
+		
+		$results = Mage::registry('seoredirects_results');		
+		$stores = Mage::getResourceModel('core/store_collection');
+		$pad = '&nbsp;&nbsp;&nbsp;&nbsp;';
+		
+		foreach($stores as $store)
+		{
+			if(($results[$store->getId()]['updated'] + 
+				$results[$store->getId()]['added'] + 
+				$results[$store->getId()]['deleted'] + 
+				$results[$store->getId()]['loops']) == 0)
+			{
+				continue;
+			}
+			
+			$this->_getSession()->addSuccess(
+					Mage::helper('seoredirects')->__($store->getName())
+				);
+			
+			if($results[$store->getId()]['updated'] > 0)
+				$this->_getSession()->addSuccess(
+						Mage::helper('seoredirects')->__($pad.'Updated '.$results[$store->getId()]['updated'].' redirection(s).')
+				);
+			
+			if($results[$store->getId()]['added'] > 0)
+				$this->_getSession()->addSuccess(
+						Mage::helper('seoredirects')->__($pad.'Added '.$results[$store->getId()]['added'].' redirection(s).')
+				);
+			
+			if($results[$store->getId()]['deleted'] > 0)
+				$this->_getSession()->addSuccess(
+						Mage::helper('seoredirects')->__($pad.'Deleted '.$results[$store->getId()]['deleted'].' redirection(s).')
+				);
+			
+			if($results[$store->getId()]['loops'] > 0)
+				$this->_getSession()->addSuccess(
+						Mage::helper('seoredirects')->__($pad.'Deleted '.$results[$store->getId()]['loops'].' looping redirection(s).')
+				);
+			
+			if(!empty($results[$store->getId()]['limitation']))
+				$this->_getSession()->addSuccess(
+						Mage::helper('seoredirects')->__($pad.$results[$store->getId()]['limitation'])
+				);
+		}
+		
+		$this->_redirect('*/*/index');
+	}
+}

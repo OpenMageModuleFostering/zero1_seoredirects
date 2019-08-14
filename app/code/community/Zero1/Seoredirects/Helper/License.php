@@ -1,60 +1,73 @@
-<?php //0046a
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo('Site error: the file <b>'.__FILE__.'</b> requires the ionCube PHP Loader '.basename($__ln).' to be installed by the website operator. If you are the website operator please use the <a href="http://www.ioncube.com/lw/">ionCube Loader Wizard</a> to assist with installation.');exit(199);
-?>
-HR+cPuMMwqg5Dj1jH5j+QQXNQ1Lx3BPXv9nzrvQigNhXh0/5Q9O5gphXvuR7HZKtkJfo3KbN2sGI
-s71DggIpWHIHaQz2kk+nC1HVZ+o7b8yGGzIBhKNFGBgAnIn3svBQt/3xAEcJJbwbLRfd2Itylxhd
-AqnhUSZ0H8nqQ56AHhpj/1liiRWTYTPvyoxVe5rEogjxk5tyAKIr0eMHeUXeJv7KUGPoSGyHIX7r
-RUhi+NWTrLslq6QMB1UcHaaV9BufPFTDqSfpm1WpgQzaf1k7jHfOvnZlN9xn4hfz/p5Mjq7kqom/
-F+Q5GxTxNB9OU4jcJvMnJRTRiOqmvQmMU8W0iD1WV1lvVavgTliPtspCk1N++ldWpFCrM3KUEDLx
-T7IvoVBA37oxla6TZkwelctW67jRdrVSe8a6gIaKXEocJ2nEdPJzZUMF6mUud4ZweUEZadLj5mVf
-y0PObwvQtT3iekexectaoDam3yPrnOKJSbRTgUbNmuljdsp8n23L7OKF3TDJD7ETLJDlps7HW+iA
-ef64IRRi0MNXO7Ti2WAdUrliNn1zFIs2YK9cH93sXPJLR77DaIF/WuXHZkfqbR4XUnuLDWYL3XPK
-b+XhGqh7ZuKPAFGpHsR3j5kDzpGI4590f+93lduIXD8dXoJOslInb7Hxx7mw9g+eRcLYYFo+QL6R
-yExRQuO7E33WxiUmHmni72cTwjCWmM0MreRTGB1l+ygAFmQ+j6fkK7EtjIj4AW0dRedUHO8LTmzD
-02Y8tYxOVdCYH1XF0plE6i1AmfDfstwhTXRVNcAxio0P4A6vYVooojXnbIMUEwI5b4cF2Y3whYKq
-RIfFmqaBamOWfWMmfWa5Ub6SvqoHjQgXKXecY6DLFKp3vf9vk90MlevhrRX2MDQbOGejvQIlzei0
-l4p5NxNRJqURsX8gCGWdI5bhZfnVqTkxfbo+A+wn+J3bzZCqu1O4ldi/FR/TJZ3MIqJ813x1gGu6
-TEJP8eHljTTH20RRcUN+0pzNLcvBxcckzepnny5LWW77aunu2Hl+++FNtDNYj3rzDhUXxUeJPGDZ
-guId2LHYLor3SBECutUbi6LdOdo2iKwIOevruLQkg8rGVWo7yAmn/LFdvlBXQoZlbZxrRzRnuBfl
-Ln3D/WUnreguBBFORTiCX9uOmhniW05rgysIt2g19mk9isHhLIoNAYQfLOqcmZ6ZS6yiSkwyM8dW
-/fGZIsca7I+Aho++T2jfOji+sK1s4ZkkNn7uDW4NSIezPA73wlQ8Bs18efP1huq57l6Qk3SiixBZ
-r71IO5weLBB/QZqOwupSAs2OLRcuWVMfj9W9k5fdGLmacPm/R8MH14biNioCABmS9GQlf3RJ6+7d
-rDpIVIn8G6TccqV5/K2KM/Hgj0vEhmkxS2Oc7zV/Dm+rgdAYVpqIXnvIdFJdTCKdNKVhlKP/3QcL
-OIiD5EEzwZ4fG1m9mbp1vJ2HnPBmjlzW2eEVkP0aZAAg17l0ZaeSWUC+cS8nlTO249+tgY3dp5j2
-ZjBsngoHPxgwgQTFQs7lex38KvUp5g7CpFuNYUmP6IGjf0AsfAZR/wcmFZ8rstytSzvfl1UK7Mam
-qARbXPz1miA1X3N805p97cNQ1SSEfqzGR8Flp9B5C20DmiCCSCM/37fRtA7udNWqywQSzOsxhCP2
-njj/qngtMGPfvY8Y9vKHaddj70OofTI2JeIDVbLT99sHEbQSPmBnYQjkl7zEp2d2iq9wd2rTLw66
-CetspFvQ6ZUjnxAl6dePCUC6Xa1ZMvSOiiZuJOtodhoEClpbWrlPyFNmLyJ3hCZQfRPiI7S3Os6b
-XlCrbU2UPtVsQHCedUPJFhVOmgtuoTR9304FvSauTxAZHfWgAHcEigY83OlSWaWAC7f0hNhbX0YY
-3MOm9xGuYGz9khquM/4ZIjWH3pYJ8PgHsvnXu1dv830Zw/K2qkbDcsZ+LbiPUcD3HdT1IA/VNPL1
-lsyfPQQROd8hLPZ8KCTRzs9pxBzJC/1ZYhbtnazZeW+uWUavBa5mLWissWl8awjj9fol8vRC7VDl
-50d5/puemx5ibkcF5gTafUYjCtp1P4P0UQ3UnCGXHMzGcFfCuxribfaELj6cG3rJirim2ibSLuW/
-ZhOVr0b2eM0qN78Yd0pPUYGagS9jia15PKNmgkWsismxSxeenXZ+0mUyz2mFB6BgZKt/gQF+jgkZ
-wXIDTsaglef7J6s6Ar7Ie3NEx608J+u8AKSI8bE1RbFKBU4eN2ZYT3Hf7F31KYw4bWmc8nsifXXw
-MZ0C5AT1SE57QHcSBWZTgFmMJSkNANz2t6pp/fGUupe0PqD0PNakny5eR601mgZRd0a32cIUYWI/
-rjBh9svMDiDF7UAy/9Xn/pKXRIPWtsvzeV/VkXVTaEF0Z1falV7r3YbstPMiijfIXhsNSv3d51mO
-1C3Mh7QvRHfG90E+trM4FX0YEXYHZSzkYacRxAbkLamsu5Vyst/6r8lPKOgyh7/RLhBFIZ5bPvH2
-SxAgyeGah9egShbx7B3WwAFq1XyDviF726l3YPp2wvBUaijepHNRErzSdkdfQIggXSRsYqUbK6fX
-ejf6Pq8qUgKntYSuX7avkrGrJs5lQ314Xb47kEne0Okpah5ggWNWPTNYjWK4MYl1QEbe65KOGeap
-3690hVyPCF9RVgpT99N8MHzEt/MpVxVDHDkZ3VBmYO1XttXBgaYnzWPd54V/kswqMmFi0zWFHSde
-fLNqbVrPSDaitUhs9F3NKFjR3E0zw+moCQNl9RNp9gJ+6MORCbo73tQVA6vfsy/MMndVLpJdSeE4
-/neYsIPRCAwir87r4pyJo1KOwoc9oJY0ewiDKRWWktlDcobkg8lWmENMTr3Yzuwnb9Z9ZPG28JjG
-nKPOP3lFTINdRkTpNkmwjNN6NVfvQ99f0fpPH1/VOC7Roauk17c+CPWpm22+4PUSX+wDv2IQBUbY
-qv1Y5Pul34hMkH+hNWc2hX90Ii2VXdR3Ay9UGJCSiaDzaXF+ZMV47PvBf2+EQjgMkGaMpPDPiuyC
-qFw/zB3V8yGpNiqRl1cjJo7RR7r2BgQuRsXu47PIaGbMdfapqvQ5AAhg+HiLlW/KJV2FPZxT1UHA
-wqqLe2XkupgeSQ6cSxYthYrEQl0XA8OPDDZ4tv8DHlA9tWSvODAyLPHpyRBg0Fe3lk41C87K6ZR9
-gQbIJ1tZXc/VDoTp/DlE3Ld2YMHXromqTr/qYyfmdxoBgusMXuXpdEp1CnWp8A1D1CkmRQPrmpUq
-8JdxDlV8yUSeQpqCX4hcl4WXi7Bv7qmARQqvRUG2kwLlFp+8Ym4kmI5BGXhROsv1yNvbjOA7BpBj
-3m7FO+AYYDTeWs0gRpbCwak26RlRUWZaNCGpXGRHTp9dKSEVEvcZeypQAUM5Fd4vsqI32GJVW8Mw
-f/5gaSDHjzuC87pPwSJ+iRWRnGpW1JajFbtJQcXage2610W+qyRfhbl3N4a9p5Ra/1JSYrwEXEGE
-qd7lX9m71mabacptOQXd2Ghe6p5rxlLtQH/0XGV65/wATxIAvkSLtGhKxt4xvXztrQqdGB4B4gG8
-CtuYrgzYEaPGWaaaX8kEmW4h01s2225WgXVYJnmXrSQIWnW4tE2f+5M/Az56Xny8lq4zyC0jPCLB
-oTdr/UeUAMfFCwuOdmzmovgUVmxuovD40O7ovhICxaxwHBpYtQdrQfc/CIDMXRY7pl9HYHels5qJ
-ZOW7MCF4b18gY7+NFME5xU0/LlP9L109XYLAzVEezFOJa4DRzIEqpEs3cNPHuCsa0Ha5Cnk9O11S
-1kj/dJWJ67Po/9OtuCUk0NKUhkJ7ocIl/XVSw4N5J/70Uil2kwy7g56fjaOfTN0XEgWStkTRtwIB
-DdxuhntXQYKcMeJYKTXaqUEKA2TCaCYuHJEeV2ODUjpDRG9n+RFWzJeIRiW7H+6BdzxLMlgltLrz
-PgWl/N5fO9IblLhpTx7kXudgYNxvmQyikLhzmDRqgzFadBcA357Qra27G/i1vEwHLn+1xB0WBVGx
-lfPl5PqwpEDzLKwHX9h4aWDvNrtw06vjNagul93gC2+NikP/t29Q1H4rwymv7XlYkHJE1OLlAePG
-FfLkRExgziZ9GUY0gHCR0/wu/P7alkC/9vAer7RVpUbRC7oq6iDHFMmbQdFsr0DRGvKdRCsxHolJ
-mxP3Hk9/Zew/sRW9d8AfeYw+BUA513MNBhRT7xJCNSWEZAGM6nlv4OU8sZOxeVZPBqddTrxtv1R2
-0RDHf1PQbO0Ph7RH1Rt8RfDsXRsPps3Q
+<?php
+class Zero1_Seoredirects_Helper_License extends Mage_Core_Helper_Abstract
+{	
+	private $_license_required_for_community	= true;
+	private $_license_required_for_enterprise	= true;
+		
+	public function isEnterprise()
+	{				
+		if(method_exists('Mage', 'getEdition'))
+		{
+			// Mage::getEdition() exists so it is EE 1.12+ or CE 1.7+
+			if(Mage::getEdition() == Mage::EDITION_ENTERPRISE)
+				return true;
+		} else {
+			// Fallback on the old version number lookup
+			$version = Mage::getVersionInfo();
+			 
+			if($version['major'] == 1 && $version['minor'] >= 7)
+				return true;
+		}
+		
+		return false;
+	}
+	
+	public function isValid($store = null)
+	{
+		$data = $this->getData($store);
+		
+		if($this->isEnterprise())
+		{
+			if($this->_license_required_for_enterprise && !isset($data['enterprise']))
+				return false;
+		} else {
+			if($this->_license_required_for_community && !isset($data['community']))
+				return false;
+		}
+		
+		return true;
+	}
+	
+    public function getData($store = null)
+    {
+		$store = ($store === null) ? Mage::app()->getStore() : $store;
+		
+    	$data			= array();
+    	$module_name	= preg_replace('/^Zero1_([^_]*)_Helper_License$/si', '$1', get_class($this));
+    	$module_name	= strtolower($module_name);
+    	$serial			= base64_decode($store->getConfig($module_name.'/settings/serial'));
+    	$url			= $store->getConfig('web/unsecure/base_url');
+    	
+    	if(!empty($url) && !empty($serial))
+    	{
+	    	$hash = hash('sha256', '$4$W8DgMGQZ$Twn84iicE6FQo7wCrxnL4Aow5/w$'.$module_name.$url, true);	    	
+	    	$iv_size = mcrypt_get_iv_size(MCRYPT_BLOWFISH, MCRYPT_MODE_ECB);
+	    	$iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+    		$data = @unserialize(mcrypt_decrypt(MCRYPT_BLOWFISH, $hash, $serial, MCRYPT_MODE_ECB, $iv));
+    		$data = (!is_array($data)) ? array() : $data;
+    	}
+    	
+    	return $data;
+    }
+    
+    public function getRequestURL($store = null)
+    {
+		$store = ($store === null) ? Mage::app()->getStore() : $store;
+		
+    	$params					= array();
+    	$params['url']			= $store->getConfig('web/unsecure/base_url');
+    	$params['enterprise']	= ($this->isEnterprise()) ? '1' : '0';
+    	
+    	return 'http://www.zero1.co.uk/licence/index.php?'.http_build_query($params);
+    }
+}

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<config>        
+<config>            
     <modules>
         <Zero1_Seoredirects>
-            <version>1.0.1</version>
+            <version>1.0.17</version>
         </Zero1_Seoredirects>
     </modules>
     
@@ -10,24 +10,25 @@
         <models>            
             <seoredirects>
                 <class>Zero1_Seoredirects_Model</class>
-                <resourceModel>seoredirects_mysql4</resourceModel>
+                <resourceModel>seoredirects_resource</resourceModel>
             </seoredirects>
             
-            <seoredirects_mysql4>
-                <class>Zero1_Seoredirects_Model_Mysql4</class>
+            <seoredirects_resource>
+                <class>Zero1_Seoredirects_Model_Resource</class>
+                <deprecatedNode>seoredirects_mysql4</deprecatedNode>
                 <entities>
                     <redirection>
                         <table>zero1_seoredirects_redirection</table>
                     </redirection>
                 </entities>
-            </seoredirects_mysql4>
+            </seoredirects_resource>
         </models>
         
         <resources>            
             <seoredirects_setup>
                 <setup>
                     <module>Zero1_Seoredirects</module>
-                    <class>Zero1_Seoredirects_Model_Mysql4_Setup</class>
+                    <!-- <class>Mage_Eav_Model_Entity_Setup</class> -->
                 </setup>
             </seoredirects_setup>
         </resources>
@@ -58,16 +59,26 @@
     </admin>
     
     <frontend>    
-	    <events>    
-	      <controller_front_send_response_before>
-	        <observers>
-	          <Zero1_Seoredirects_Model_Observer>
-	            <type>singleton</type>
-	            <class>Zero1_Seoredirects_Model_Observer</class>
-	            <method>controller_front_send_response_before</method>
-	          </Zero1_Seoredirects_Model_Observer>
-	        </observers>
-	      </controller_front_send_response_before>
+	    <events>
+          <controller_front_send_response_before>
+            <observers>
+              <Zero1_Seoredirects_Model_Observer>
+                <type>singleton</type>
+                <class>Zero1_Seoredirects_Model_Observer</class>
+                <method>controller_front_send_response_before</method>
+              </Zero1_Seoredirects_Model_Observer>
+            </observers>
+          </controller_front_send_response_before>
+          
+          <controller_front_send_response_after>
+            <observers>
+              <Zero1_Seoredirects_Model_Observer>
+                <type>singleton</type>
+                <class>Zero1_Seoredirects_Model_Observer</class>
+                <method>controller_front_send_response_after</method>
+              </Zero1_Seoredirects_Model_Observer>
+            </observers>
+          </controller_front_send_response_after>
 	    </events>
     </frontend>
     
@@ -84,8 +95,10 @@
     <default>       
         <seoredirects>
             <settings>
-                <seoredirects_enabled>0</seoredirects_enabled>
-                <seoredirects_url></seoredirects_url>
+                <enabled>0</enabled>
+                <url></url>
+                <strip_domain>1</strip_domain>
+                <strip_slash>1</strip_slash>
             </settings>
         </seoredirects>
     </default>

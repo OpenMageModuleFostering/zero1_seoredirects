@@ -5,46 +5,79 @@
             <label>SEO Redirect</label>
             <tab>catalog</tab>
             <sort_order>990</sort_order>
-            <show_in_default>0</show_in_default>
+            <show_in_default>1</show_in_default>
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
             <groups>
                 <settings translate="label">
                     <label>SEO Redirect Settings</label>
                     <sort_order>1</sort_order>
-                    <show_in_default>0</show_in_default>
+                    <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
-                        <seoredirects_enabled translate="label">
+                        <enabled translate="label">
                             <label>Enabled</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>0</sort_order>
-                            <show_in_default>0</show_in_default>
-                            <show_in_website>0</show_in_website>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </seoredirects_enabled>
+                        </enabled>
                         
-                        <seoredirects_url translate="label">
+                        <url translate="label">
                             <label>Google Docs URL</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>1</sort_order>
-                            <show_in_default>0</show_in_default>
-                            <show_in_website>0</show_in_website>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <comment>The above URL will be downloaded into Magento at 2am every morning</comment>
-                        </seoredirects_url>
+                            <comment><![CDATA[The above document will be downloaded and parsed into Magento at 2am every morning]]></comment>
+                        </url>
+
+                        <file translate="label">
+                            <label>File to import</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>seoredirects/source_files</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[The above document from "var/seoredirects/import" will be parsed into Magento at 2am every morning]]></comment>
+                        </file>
                         
-                        <seoredirects_serial translate="label">
+                        <serial translate="label">
                             <label>Serial</label>
                             <frontend_type>textarea</frontend_type>
-                            <sort_order>2</sort_order>
-                            <show_in_default>0</show_in_default>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
                             <comment><![CDATA[Visit <a href="http://www.zero1.co.uk/" target="_blank">http://www.zero1.co.uk</a> if you require a serial.]]></comment>
-                        </seoredirects_serial>
+                        </serial>
+
+                        <strip_domain translate="label">
+                            <label>Strip Domain</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Removes domain from imported URLs]]></comment>
+                        </strip_domain>
+
+                        <strip_slash translate="label">
+                            <label>Strip Slash</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Removes "/" from the start of imported URLs]]></comment>
+                        </strip_slash>
                     </fields>
                 </settings>
             </groups>
