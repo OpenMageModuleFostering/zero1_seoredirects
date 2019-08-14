@@ -3,6 +3,9 @@ class Zero1_Seoredirects_Helper_License extends Mage_Core_Helper_Abstract
 {	
 	private $_license_required_for_community	= true;
 	private $_license_required_for_enterprise	= true;
+    protected $_licenceLimit = null;
+
+    const DEFAULT_LIMIT = 50;
 		
 	public function isEnterprise()
 	{				
@@ -22,10 +25,10 @@ class Zero1_Seoredirects_Helper_License extends Mage_Core_Helper_Abstract
 		return false;
 	}
 	
-	public function isValid($store = null)
+	public function isValid()
 	{
-		$data = $this->getData($store);
-		
+		$data = $this->getData();
+
 		if($this->isEnterprise())
 		{
 			if($this->_license_required_for_enterprise && !isset($data['enterprise']))
@@ -38,9 +41,9 @@ class Zero1_Seoredirects_Helper_License extends Mage_Core_Helper_Abstract
 		return true;
 	}
 	
-    public function getData($store = null)
+    public function getData()
     {
-		$store = ($store === null) ? Mage::app()->getStore() : $store;
+		$store = Mage::app()->getStore(0);
 		
     	$data			= array();
     	$module_name	= preg_replace('/^Zero1_([^_]*)_Helper_License$/si', '$1', get_class($this));
@@ -69,5 +72,23 @@ class Zero1_Seoredirects_Helper_License extends Mage_Core_Helper_Abstract
     	$params['enterprise']	= ($this->isEnterprise()) ? '1' : '0';
     	
     	return 'http://www.zero1.co.uk/licence/index.php?'.http_build_query($params);
+    }
+
+    public function getLicenceLimit()
+    {
+        if(isset($this->_licenceLimit)) {
+            $this->_licenceLimit;
+        }
+
+        $this->_licenceLimit = self::DEFAULT_LIMIT;
+        if($this->isValid()) {
+            $license_data = $this->getData();
+
+            if(isset($license_data['limit'])) {
+                $this->_licenceLimit = $license_data['limit'];
+            }
+        }
+
+        return $this->_licenceLimit;
     }
 }

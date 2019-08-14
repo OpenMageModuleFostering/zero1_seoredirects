@@ -1,0 +1,90 @@
+<?php
+/* @var $this Zero1_Seoredirects_Block_Adminhtml_Import_Report */
+$logData = $this->getLogData();
+if(empty($logData)){
+	echo 'Nothing to import';
+	return;
+}
+//add row counts to log data, so we can add to table
+$websiteOrder = array();
+foreach($logData as $websiteCode => $websiteData){
+    if($websiteCode !== 'default'){
+        $websiteOrder[Mage::app()->getWebsite($websiteCode)->getId()] = $websiteCode;
+    }
+}
+ksort($websiteOrder);
+if(isset($logData['default'])){
+	array_unshift($websiteOrder, 'default');
+}
+foreach($websiteOrder as $websiteCode){
+    $logData[$websiteCode]['rowCount'] = 1 + count($logData[$websiteCode]['log']);
+    if(isset($logData[$websiteCode]['stores'])){
+        foreach($logData[$websiteCode]['stores'] as $storeCode => $storeData){
+            $logData[$websiteCode]['rowCount'] += (1 + count($storeData['log']));
+            $logData[$websiteCode]['stores'][$storeCode]['rowCount'] = 1 + count($storeData['log']);
+        }
+    }
+}
+
+?>
+<div class="grid" style="margin-bottom: 50px;">
+    <table class="data" cellspacing="0">
+        <colgroup>
+            <col span="1" style="width: 250px;" />
+            <col span="1" style="width: 250px;" />
+            <col span="1" />
+            <col span="1" style="width: 100px;" />
+            <col span="1" style="width: 50px;" />
+        </colgroup>
+        <thead>
+        <tr class="headings">
+            <th class="no-link"><span class="nobr"><?php echo Mage::helper('core')->__('Website Name') ?></span></th>
+            <th class="no-link"><span class="nobr"><?php echo Mage::helper('core')->__('Store View Name') ?></span></th>
+            <th class="no-link"><span class="nobr"><?php echo Mage::helper('core')->__('Message') ?></span></th>
+            <th class="no-link"><span class="nobr"><?php echo Mage::helper('core')->__('Severity') ?></span></th>
+            <th class="no-link"><span class="nobr"><?php echo Mage::helper('core')->__('Line Number') ?></span></th>
+        </tr>
+        </thead>
+        <tbody>
+            <?php foreach($websiteOrder as $websiteCode): ?>
+                <?php
+                $websiteData = $logData[$websiteCode];
+                $website = ($websiteCode == 'default')? Mage::app()->getStore(0) : Mage::app()->getWebsite($websiteCode);
+                ?>
+
+                <tr>
+                    <td rowspan="<?php echo $websiteData['rowCount']; ?>"><?php echo $website->getName(); ?></td>
+                    <td rowspan="<?php echo count($websiteData['log']) + 1; ?>">&nbsp;</td>
+                </tr>
+                <?php foreach($websiteData['log'] as $websiteLogRow): ?>
+                    <tr style="background-color: <?php echo $this->getSeverityColor($websiteLogRow['severity']); ?>">
+                        <?php // website col ?>
+                        <?php // store col ?>
+                        <td><?php echo $websiteLogRow['message']; ?></td>
+                        <td><?php echo $this->getSeverityLabel($websiteLogRow['severity']);?></td>
+                        <td><?php echo $websiteLogRow['line_number']; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                <?php if(isset($websiteData['stores'])): ?>
+                    <?php foreach($websiteData['stores'] as $storeCode => $storeData): ?>
+                        <?php $store = Mage::app()->getStore($storeCode); ?>
+                        <tr>
+                            <?php //website col ?>
+                            <td rowspan="<?php echo $storeData['rowCount']; ?>"><?php echo $store->getName();?></td>
+                        </tr>
+                        <?php foreach($storeData['log'] as $storeLogRow): ?>
+                            <tr style="background-color: <?php echo $this->getSeverityColor($storeLogRow['severity']); ?>">
+                                <?php // website col ?>
+                                <?php // store col ?>
+                                <td><?php echo $storeLogRow['message']; ?></td>
+                                <td><?php echo $this->getSeverityLabel($storeLogRow['severity']);?></td>
+                                <td><?php echo $storeLogRow['line_number']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

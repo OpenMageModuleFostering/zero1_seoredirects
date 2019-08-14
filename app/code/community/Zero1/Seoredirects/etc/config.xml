@@ -2,47 +2,49 @@
 <config>            
     <modules>
         <Zero1_Seoredirects>
-            <version>1.0.17</version>
+            <version>1.1.1</version>
         </Zero1_Seoredirects>
     </modules>
     
     <global>        
-        <models>            
-            <seoredirects>
+        <models>
+            <zero1_seo_redirects>
                 <class>Zero1_Seoredirects_Model</class>
-                <resourceModel>seoredirects_resource</resourceModel>
-            </seoredirects>
+                <resourceModel>zero1_seo_redirects_resource</resourceModel>
+            </zero1_seo_redirects>
             
-            <seoredirects_resource>
+            <zero1_seo_redirects_resource>
                 <class>Zero1_Seoredirects_Model_Resource</class>
-                <deprecatedNode>seoredirects_mysql4</deprecatedNode>
                 <entities>
                     <redirection>
                         <table>zero1_seoredirects_redirection</table>
                     </redirection>
+                    <redirection_cache>
+                        <table>zero1_seoredirects_redirection_cache</table>
+                    </redirection_cache>
                 </entities>
-            </seoredirects_resource>
+            </zero1_seo_redirects_resource>
         </models>
         
-        <resources>            
-            <seoredirects_setup>
+        <resources>
+            <zero1_seoredirects_setup>
                 <setup>
                     <module>Zero1_Seoredirects</module>
-                    <!-- <class>Mage_Eav_Model_Entity_Setup</class> -->
+                    <class>Mage_Eav_Model_Entity_Setup</class>
                 </setup>
-            </seoredirects_setup>
+            </zero1_seoredirects_setup>
         </resources>
            
         <blocks>
-            <seoredirects>
+            <zero1_seo_redirects>
                 <class>Zero1_Seoredirects_Block</class>
-            </seoredirects>
+            </zero1_seo_redirects>
         </blocks>
         
         <helpers>
-            <seoredirects>
+            <zero1_seo_redirects>
                 <class>Zero1_Seoredirects_Helper</class>
-            </seoredirects>
+            </zero1_seo_redirects>
         </helpers>
     </global>
     
@@ -69,7 +71,7 @@
               </Zero1_Seoredirects_Model_Observer>
             </observers>
           </controller_front_send_response_before>
-          
+
           <controller_front_send_response_after>
             <observers>
               <Zero1_Seoredirects_Model_Observer>
@@ -86,22 +88,11 @@
         <layout>
             <updates>
                 <seoredirects>
-                    <file>seoredirects.xml</file>
+                    <file>zero1/seoredirects.xml</file>
                 </seoredirects>
             </updates>
         </layout>
     </adminhtml>
-    
-    <default>       
-        <seoredirects>
-            <settings>
-                <enabled>0</enabled>
-                <url></url>
-                <strip_domain>1</strip_domain>
-                <strip_slash>1</strip_slash>
-            </settings>
-        </seoredirects>
-    </default>
     
     <crontab>
         <jobs>
@@ -110,9 +101,17 @@
                     <cron_expr>0 2 * * *</cron_expr>
                 </schedule>
                 <run>
-                    <model>seoredirects/observer::updateRedirectionsCronJob</model>
+                    <model>zero1_seo_redirects/observer::cronImport</model>
                 </run>
             </seoredirects>
         </jobs>
     </crontab>
+
+    <default>
+        <seoredirects>
+            <advanced_settings>
+                <import_log_level>5</import_log_level>
+            </advanced_settings>
+        </seoredirects>
+    </default>
 </config>

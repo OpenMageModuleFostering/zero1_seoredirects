@@ -3,7 +3,7 @@
     "type": "magento-module",
     "license": "Commercial",
     "homepage": "",
-    "description": "Manage you SEO redirects using a Google Doc",
+    "description": "Manage you SEO redirects using a Google Doc or and Uploaded File.",
     "authors": [
     {
         "name": "Arron Moss",

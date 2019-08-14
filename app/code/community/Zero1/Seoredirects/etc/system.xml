@@ -1,17 +1,18 @@
 <?xml version="1.0"?>
 <config>
     <sections>
-        <seoredirects translate="label" module="seoredirects">
-            <label>SEO Redirect</label>
+        <seoredirects translate="label" module="zero1_seo_redirects">
+            <label>SEO Redirects</label>
             <tab>catalog</tab>
             <sort_order>990</sort_order>
             <show_in_default>1</show_in_default>
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
+            <frontend_model>zero1_seo_redirects/adminhtml_system_config_form</frontend_model>
             <groups>
                 <settings translate="label">
-                    <label>SEO Redirect Settings</label>
-                    <sort_order>1</sort_order>
+                    <label>General Settings</label>
+                    <sort_order>10</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
@@ -25,61 +26,182 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </enabled>
-                        
+
+                        <use_google_docs traslate="label">
+                            <label>Use Google Doc</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </use_google_docs>
+
                         <url translate="label">
                             <label>Google Docs URL</label>
                             <frontend_type>text</frontend_type>
-                            <sort_order>1</sort_order>
+                            <sort_order>11</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                             <comment><![CDATA[The above document will be downloaded and parsed into Magento at 2am every morning]]></comment>
+                            <depends><use_google_docs>1</use_google_docs></depends>
                         </url>
 
-                        <file translate="label">
-                            <label>File to import</label>
+                        <use_local_file translate="label">
+                            <label>Use local file</label>
                             <frontend_type>select</frontend_type>
-                            <source_model>seoredirects/source_files</source_model>
-                            <sort_order>2</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <comment><![CDATA[The above document from "var/seoredirects/import" will be parsed into Magento at 2am every morning]]></comment>
-                        </file>
+                        </use_local_file>
+
+                        <local_file translate="label">
+                            <label>File to import</label>
+                            <frontend_type>zero1_seo_redirects_file</frontend_type>
+                            <frontend_model>zero1_seo_redirects/adminhtml_system_config_form_field</frontend_model>
+                            <backend_model>zero1_seo_redirects/adminhtml_system_config_backend_file</backend_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><use_local_file>1</use_local_file></depends>
+                            <comment>The above file will be parsed into Magento at 2am every morning</comment>
+                        </local_file>
                         
                         <serial translate="label">
                             <label>Serial</label>
                             <frontend_type>textarea</frontend_type>
-                            <sort_order>3</sort_order>
+                            <sort_order>30</sort_order>
                             <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
+                            <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
                             <comment><![CDATA[Visit <a href="http://www.zero1.co.uk/" target="_blank">http://www.zero1.co.uk</a> if you require a serial.]]></comment>
                         </serial>
-
-                        <strip_domain translate="label">
-                            <label>Strip Domain</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>4</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <comment><![CDATA[Removes domain from imported URLs]]></comment>
-                        </strip_domain>
-
-                        <strip_slash translate="label">
-                            <label>Strip Slash</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>5</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <comment><![CDATA[Removes "/" from the start of imported URLs]]></comment>
-                        </strip_slash>
                     </fields>
                 </settings>
+                <redirection_settings translate="label">
+                    <label>Redirection Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <params translate="label">
+                            <label>Auto Remove Query Params</label>
+                            <frontend_type>select</frontend_type>
+                            <frontend_model>zero1_seo_redirects/adminhtml_settings_params</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized</backend_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>When checking URLs these parameters will automatically be stripped from the query string.</comment>
+                        </params>
+                    </fields>
+                </redirection_settings>
+                <advanced_settings>
+                    <label>Advanced Settings</label>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <log_404s traslate="label">
+                            <label>Log 404's</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </log_404s>
+                        <log_404s_limit>
+                            <label>Limit number of 404's logged</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>zero1_seo_redirects/adminhtml_system_config_backend_number</backend_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><log_404s>1</log_404s></depends>
+                            <comment>0 for unlimited, though not recommended</comment>
+                        </log_404s_limit>
+                        <import_log_level traslate="label">
+                            <label>Import Log Level</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>zero1_seo_redirects/adminhtml_system_config_source_logLevels</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[How much information should be displayed after running an import]]></comment>
+                        </import_log_level>
+                        <enable_reporting traslate="label">
+                            <label>Enable reporting</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Enable this to be sent a report after the scheduled import has ran.]]></comment>
+                        </enable_reporting>
+                        <email_addresses>
+                            <label>Email</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enable_reporting>1</enable_reporting></depends>
+                            <comment>Comma seperated list</comment>
+                        </email_addresses>
+                        <after_manual_import>
+                            <label>Report after a manual import</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enable_reporting>1</enable_reporting></depends>
+                            <comment><![CDATA[Enable this to be sent a report after a manual import has ran.]]></comment>
+                        </after_manual_import>
+                    </fields>
+                </advanced_settings>
+                <debug_settings>
+                    <label>Debug Settings</label>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable_debug traslate="label">
+                            <label>Enable Debug</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Enable debug mode for select IPs.]]></comment>
+                        </enable_debug>
+                        <debug_ips>
+                            <label>IP Addresses</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enable_debug>1</enable_debug></depends>
+                            <comment>Comma seperated list, blank for all</comment>
+                        </debug_ips>
+                    </fields>
+                </debug_settings>
             </groups>
         </seoredirects>
     </sections>

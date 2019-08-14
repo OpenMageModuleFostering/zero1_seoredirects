@@ -1,0 +1,48 @@
+- Add button to serial key entry to allow automated call away to us
+- Make sure report email includes URL use stats
+- Make 0 unlimited for URL key
+- When unselecting 'use website' the options need to be enabled for adding ignorebales
+- Check that license stuff still works
+- Hook up hint links to correct Wiki pages
+- Work persist query into import process
+
+
+Done!!! :D
+- Add config option to be able to declare 'ignoreables'
+- Remove query type logging
+- Remove from type from the module
+- Remove to type from the module
+- Add source field
+- Remove to and from types from the manual add
+- Make links to files work
+- Make config check if file is actually there.
+- Debug same store in manual add redirect
+- Implement ignoring ingnoreables - when saving a redirect
+- Fixed bug where removing ignorables would allow a url like this to be saved /a?
+- Removed rouge '/' at end of from urls
+- Removed bug where open ended queries would default to fixed when editing manually
+- Allow different types of redirect: persist query, ignore query
+- Implement ignoring ingnoreables - when finding a redirect
+- Add Alias table
+- Sort out manage grid, remove not needed fields
+- Add validation to persistables i.e stop a=b being allowed
+- Implement recursion tests when saving redirects
+- Implement License count test when saving redirects
+- add number of successful imported rows
+- make sure on redirection update cache is cleared, Clear cache when url is deactivated
+- Do license count on a global basis rather than per store
+- Rework import process, so it is incremental
+- Sort out import redirects page
+- Make export functionality work
+- Have report function to allow monitoring of how many URLs per store.
+- Add a counter to config page (summary of redirects in use)
+- sort out cron job
+
+
+
+
+==============================================================================
+||                  USEFUL                                                  ||
+==============================================================================
+//$url = 'https://docs.google.com/spreadsheet/pub?key=0Ajn9n2I70JS5dFFNRHRad1dhZERlRXNzUGl2eTl0akE&output=csv'; // CSV type
+//$url = 'https://docs.google.com/spreadsheets/d/1_LmfnFJjxvX5X9TCwXN-EKFxOVRtegg__XTrZlPTUl4/pubhtml'; // HTML type

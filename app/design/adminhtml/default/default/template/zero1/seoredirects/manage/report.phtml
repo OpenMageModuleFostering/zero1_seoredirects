@@ -1,0 +1,25 @@
+<?php /* @var $this Zero1_Seoredirects_Block_Adminhtml_Manage_Report */ ?>
+<?php
+$licenseCounts = $this->getLicenseCounts();
+$licenseLimit = $this->getLicenseLimit();
+?>
+<style>
+    li.seo-redirects-licesnse-limit{
+        display: inline;
+        margin-left: 50px;
+    }
+</style>
+<div class="switcher">
+    <h4>License Usage&nbsp;&nbsp;
+        <?php if(isset($licenseCounts[0])): ?>
+            (Overall: <?php echo $licenseCounts[0]['count']; ?> / <?php echo ($licenseLimit == 0)? 'Unlimited' : $licenseLimit; ?>)
+        <?php endif; ?>
+    </h4>
+    <ul>
+
+        <?php foreach($licenseCounts as $storeId => $data): ?>
+            <?php if($storeId == 0){ continue; } ?>
+            <li class="seo-redirects-licesnse-limit"><?php echo $licenseCounts[$storeId]['name']; ?>: <?php echo $licenseCounts[$storeId]['count']; ?></li>
+        <?php endforeach; ?>
+    </ul>
+</div>

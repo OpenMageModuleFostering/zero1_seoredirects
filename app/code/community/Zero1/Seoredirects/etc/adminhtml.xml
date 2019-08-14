@@ -3,16 +3,21 @@
     <menu>
         <catalog>
             <children>              
-                <seoredirects translate="title" module="seoredirects">
+                <seoredirects translate="title" module="zero1_seo_redirects">
                     <title>SEO Redirects</title>
                     <sort_order>60</sort_order>
                     <!-- action>adminhtml/seoredirects/</action -->
                     <children>
-                        <seoredirects_manage translate="title" module="seoredirects">
+                        <seoredirects_manage translate="title" module="zero1_seo_redirects">
                             <title>Manage Redirections</title>
                             <action>adminhtml/seoredirects_manage/index</action>
-                            <sort_order>0</sort_order>
+                            <sort_order>10</sort_order>
                         </seoredirects_manage>
+                        <import translate="title" module="zero1_seo_redirects">
+                            <title>Import</title>
+                            <action>adminhtml/seoredirects_import/index</action>
+                            <sort_order>20</sort_order>
+                        </import>
                     </children>
                 </seoredirects>
             </children>
@@ -27,7 +32,7 @@
                         <children>
                             <config>
                                 <children>
-                                    <seoredirects translate="title" module="seoredirects">
+                                    <seoredirects translate="title" module="zero1_seo_redirects">
                                         <title>SEO Redirect</title>
                                     </seoredirects>
                                 </children>

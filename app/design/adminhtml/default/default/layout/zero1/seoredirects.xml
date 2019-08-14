@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_seoredirects_manage_index>
+        <reference name="content">
+            <block type="zero1_seo_redirects/adminhtml_manage" name="seoredirects_manage">
+                <block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher">
+                    <action method="setUseConfirm"><params>0</params></action>
+                </block>
+                <block type="zero1_seo_redirects/adminhtml_manage_report" name="seoredirects_report" />
+            </block>
+        </reference>
+    </adminhtml_seoredirects_manage_index>
+
+    <adminhtml_seoredirects_manage_grid>
+        <update handle="formkey"/>
+        <block type="zero1_seo_redirects/adminhtml_manage_grid" name="seoredirects_manage.ajax" output="toHtml"/>
+    </adminhtml_seoredirects_manage_grid>
+
+    <adminhtml_seoredirects_export_index>
+        <reference name="content">
+            <block type="zero1_seo_redirects/adminhtml_export" name="seoredirects_export">
+            </block>
+        </reference>
+    </adminhtml_seoredirects_export_index>
+
+    <adminhtml_seoredirects_manage_edit>
+        <reference name="content">
+            <block type="zero1_seo_redirects/adminhtml_edit" name="seoredirects_edit" />
+        </reference>
+    </adminhtml_seoredirects_manage_edit>
+
+    <adminhtml_seoredirects_import_index>
+        <reference name="content">
+            <block type="zero1_seo_redirects/adminhtml_import" name="seo_redirects_import" />
+        </reference>
+    </adminhtml_seoredirects_import_index>
+</layout>

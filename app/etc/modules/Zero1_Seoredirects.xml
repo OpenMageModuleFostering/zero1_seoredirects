@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-    <modules>
-        <Zero1_Seoredirects>
-            <active>true</active>
-            <codePool>community</codePool>
-            <depends>
-            </depends>
-        </Zero1_Seoredirects>
-    </modules>
+<modules>
+    <Zero1_Seoredirects>
+        <active>true</active>
+        <codePool>community</codePool>
+    </Zero1_Seoredirects>
+</modules>
 </config>
